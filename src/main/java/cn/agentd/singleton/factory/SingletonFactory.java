@@ -46,8 +46,4 @@ public class SingletonFactory {
 
         throw new NoParameterlessConstructorException(clazz);
     }
-
-    public static void main(String[] args) {
-
-    }
 }
