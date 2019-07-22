@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 /**
  * SingletonFactory creates singleton instance of a class.
  *
+ * @author agentd
  */
 public class SingletonFactory {
     private static volatile ConcurrentHashMap<String, Object> singletonMap = new ConcurrentHashMap<>();
