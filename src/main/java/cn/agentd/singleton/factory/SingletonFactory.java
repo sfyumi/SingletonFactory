@@ -58,6 +58,21 @@ public class SingletonFactory {
         return (T) instance;
     }
 
+    @SuppressWarnings("unchecked")
+    public static <T> T removeInstance(Class<T> clazz) {
+        Object instance = singletonMap.get(clazz.getCanonicalName());
+        if (instance == null) {
+            return null;
+        }
+        synchronized (clazz.getCanonicalName()) {
+            instance = singletonMap.get(clazz.getCanonicalName());
+            if (instance == null) {
+                return null;
+            }
+            return (T) singletonMap.remove(clazz.getCanonicalName());
+        }
+    }
+
     private static Constructor<?> getParameterlessConstructor(Class<?> clazz) {
         for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
             if (constructor.getParameters().length == 0) {

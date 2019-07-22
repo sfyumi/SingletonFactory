@@ -14,12 +14,14 @@ public class SingletonFactoryTest {
     @Test
     public void test() {
         Singleton instance = SingletonFactory.getInstance(Singleton.class);
+        SingletonFactory.removeInstance(Singleton.class);
         assertEquals(instance.getName(), "singleton");
     }
 
     @Test
     public void testMethodReference() {
         Singleton instance = SingletonFactory.getInstance(Singleton.class, Singleton::new);
+        SingletonFactory.removeInstance(Singleton.class);
         assertEquals(instance.getName(), "singleton");
     }
 
@@ -27,6 +29,7 @@ public class SingletonFactoryTest {
     public void testSupplier() {
         Singleton instance = SingletonFactory.getInstance(Singleton.class,
                 () -> new Singleton("supplier"));
+        SingletonFactory.removeInstance(Singleton.class);
         assertEquals(instance.getName(), "supplier");
     }
 }
