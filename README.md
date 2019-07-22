@@ -6,5 +6,7 @@ SingletonFactory creates singleton instance of a class.
 
 ## 使用方法
 ```java
-String emptyString = SingletonFactory.getInstance(String.class);
+Singleton instance = SingletonFactory.getInstance(Singleton.class);
+Singleton instance = SingletonFactory.getInstance(Singleton.class, Singleton::new);
+Singleton instance = SingletonFactory.getInstance(Singleton.class, () -> new Singleton("supplier"));
 ```

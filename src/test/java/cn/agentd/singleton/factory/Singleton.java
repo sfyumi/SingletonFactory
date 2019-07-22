@@ -5,8 +5,12 @@ package cn.agentd.singleton.factory;
  */
 public class Singleton {
     private String name;
-    private Singleton() {
+    public Singleton() {
         this.name = "singleton";
+    }
+
+    public Singleton(String name) {
+        this.name = name;
     }
 
     public String getName() {
